@@ -1,0 +1,342 @@
+/* Design tokens */
+:root {
+  color-scheme: light;
+  --color-background: #fff;
+  --color-text: #252a2c;
+  --color-muted: #485054;
+  --color-accent: #223f59;
+  --color-accent-hover: #152e43;
+  --color-border: #d9dfe1;
+  --font-body: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --page-width: 70rem;
+  --reading-width: 42.5rem;
+  --page-gutter: 3.5rem;
+}
+
+/* Document defaults */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 2.5rem;
+}
+
+body {
+  margin: 0;
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+p,
+figure {
+  margin: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.3em;
+}
+
+a[href]:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 6px;
+}
+
+h1 {
+  max-width: 29ch;
+  margin-bottom: 1.5625rem;
+  font-size: 2.25rem;
+  font-weight: 400;
+  line-height: 1.22;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+h2 {
+  margin-bottom: 1.375rem;
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+}
+
+h3 {
+  margin-bottom: 0.625rem;
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.prose > p + p {
+  margin-top: 1.25rem;
+}
+
+/* Shared layout */
+.page {
+  width: min(var(--page-width), calc(100% - 2 * var(--page-gutter)));
+  margin-inline: auto;
+}
+
+.intro-copy,
+.section {
+  max-width: var(--reading-width);
+  margin-inline: auto;
+}
+
+/* Navigation and keyboard access */
+.skip-link {
+  position: absolute;
+  inset-block-start: 1rem;
+  inset-inline-start: 1.5rem;
+  z-index: 2;
+  padding: 0.75rem 1.25rem;
+  transform: translateY(calc(-100% - 2rem));
+  background: var(--color-background);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.75rem;
+  min-height: 6rem;
+}
+
+.wordmark {
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.035em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.875rem;
+  font-size: 1rem;
+}
+
+.site-nav a {
+  padding-block: 0.75rem;
+  text-decoration: none;
+}
+
+.site-nav a:hover {
+  text-decoration: underline;
+}
+
+/* Introduction and program sections */
+.introduction {
+  padding-top: 2.5rem;
+}
+
+.manuscript {
+  margin-top: 2.625rem;
+}
+
+.manuscript img {
+  width: 100%;
+  aspect-ratio: 3.15;
+  object-fit: cover;
+  object-position: 50% 55%;
+}
+
+.section--approach {
+  padding-top: 4.375rem;
+}
+
+.section--programs {
+  padding-top: 2.875rem;
+}
+
+/* Founder profiles */
+.section--people {
+  max-width: none;
+  padding-top: 5.375rem;
+}
+
+.section--people > h2 {
+  max-width: var(--reading-width);
+  margin: 0 auto 2rem;
+}
+
+.founder-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2.375rem;
+  max-width: 60rem;
+  margin-inline: auto;
+}
+
+.founder {
+  min-width: 0;
+}
+
+.founder img {
+  width: 100%;
+  margin-bottom: 1.4375rem;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.founder p {
+  color: var(--color-muted);
+  line-height: 1.55;
+}
+
+/* Support */
+.section--support {
+  margin-top: 4.75rem;
+  padding-top: 2.125rem;
+  padding-bottom: 5.5rem;
+  border-top: 1px solid var(--color-border);
+}
+
+
+/* Narrow desktop and tablet */
+@media (max-width: 65.625rem) {
+  :root {
+    --page-gutter: 2.25rem;
+  }
+
+  .founder-grid {
+    gap: 1.75rem;
+  }
+
+  .manuscript img {
+    aspect-ratio: 2.7;
+  }
+}
+
+/* Mobile: keep every navigation destination available. */
+@media (max-width: 47.5rem) {
+  :root {
+    --page-gutter: 1.25rem;
+  }
+
+  .site-header {
+    flex-wrap: wrap;
+    gap: 0 1.25rem;
+    min-height: 5.125rem;
+    padding-block: 1rem;
+  }
+
+  .wordmark {
+    font-size: 1.125rem;
+  }
+
+  .site-nav {
+    gap: 1.25rem;
+    font-size: 0.9375rem;
+  }
+
+  .introduction {
+    padding-top: 1.6875rem;
+  }
+
+  h1 {
+    max-width: 26ch;
+    margin-bottom: 1.4375rem;
+    font-size: 1.875rem;
+  }
+
+  h2 {
+    margin-bottom: 1.125rem;
+  }
+
+  /* Let the manuscript reach both viewport edges on small screens. */
+  .manuscript {
+    margin-top: 2rem;
+    margin-inline: calc(-1 * var(--page-gutter));
+  }
+
+  .manuscript img {
+    aspect-ratio: 1.85;
+  }
+
+  .section--approach {
+    padding-top: 2.625rem;
+  }
+
+  .section--programs {
+    padding-top: 2.375rem;
+  }
+
+  .section--people {
+    padding-top: 3.375rem;
+  }
+
+  .section--people > h2 {
+    margin-bottom: 1.625rem;
+  }
+
+  .founder-grid {
+    gap: 1.375rem;
+  }
+
+  .founder img {
+    margin-bottom: 1.0625rem;
+  }
+
+  .founder p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .section--support {
+    margin-top: 3.25rem;
+    padding-top: 1.75rem;
+    padding-bottom: 3.625rem;
+  }
+}
+
+@media (max-width: 37.5rem) {
+  .founder-grid {
+    grid-template-columns: 1fr;
+    gap: 2.375rem;
+    max-width: 21.25rem;
+    margin-inline-start: 0;
+  }
+
+  .founder img {
+    max-width: 15rem;
+  }
+
+  .founder p {
+    font-size: 1.125rem;
+  }
+}
+
+
+/* Honor the reader's motion preference. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
