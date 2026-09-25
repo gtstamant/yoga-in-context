@@ -2,7 +2,8 @@
 
 A single-page public education and donor introduction site, built with semantic
 HTML and responsive CSS. There is no JavaScript, build step, package installation,
-analytics, or third-party runtime dependency.
+or analytics. The contact form posts directly to Formspree; no third-party
+JavaScript is loaded.
 
 ## Local preview
 
@@ -33,17 +34,31 @@ lazily; the introductory manuscript image is prioritized. Navigation remains
 available at every screen size. Keyboard users have a skip link and visible link
 focus, and smooth scrolling respects reduced-motion preferences.
 
-## Contact email
+## Support form
 
-The site intentionally has no contact button or email address at launch. Add a
-contact link only after a dedicated project mailbox is active. Use that mailbox
-for replies as well as incoming inquiries; never publish a personal address or
-credentials. Any address in a mailto link is public, including in page source.
+“Discuss supporting the project” expands a native HTML disclosure with a name,
+email, and message form. Labels, required fields, email validation, and keyboard
+controls use browser-native behavior. A hidden `_gotcha` field provides
+Formspree's honeypot filtering.
+
+The form posts to `https://formspree.io/f/xvkgqvyy`. This public endpoint is a form
+identifier, not a secret. The receiving address is configured privately in the
+owner's Formspree dashboard and must never be added to HTML, CSS, or Git history.
+The visitor's `email` field supplies the Reply-To address for notifications.
+
+Formspree handles the submission response, including its confirmation page and
+any spam challenge. The site does not claim success before the service accepts a
+submission. Manage delivery, spam protection, and submissions in Formspree. The
+form includes a link to the processor's privacy policy.
+
+Replying from a personal mailbox reveals its address to the correspondent. Use a
+project mailbox or an alias that masks replies when private correspondence is
+also required.
 
 ## Publishing
 
-The intended repository is <https://github.com/gtstamant/yoga-in-context>.
-The GitHub Pages URL will be <https://gtstamant.github.io/yoga-in-context/>.
+The repository is <https://github.com/gtstamant/yoga-in-context>.
+The GitHub Pages URL is <https://gtstamant.github.io/yoga-in-context/>.
 
 In the repository's **Settings → Pages**, choose **Deploy from a branch**, then
 `main` and `/ (root)`. Subsequent pushes to `main` publish automatically. No custom
@@ -61,8 +76,13 @@ Before pushing:
 1. Run `git diff --check` and review the diff for copy changes or private data.
 2. Preview at desktop, tablet, and narrow mobile widths; check for horizontal
    scrolling, readable biographies, and loaded images.
-3. Use the keyboard to follow the skip link and each navigation link. Confirm every navigation destination remains accessible on mobile.
-4. After deployment, confirm the live page, stylesheet, images, and navigation
+3. Use the keyboard to follow the skip link, navigation, and support disclosure.
+   Check that the form expands and collapses with Enter or Space and that empty
+   fields and invalid email addresses prevent submission.
+4. Confirm the form action matches the owner's Formspree endpoint. A live test
+   submission sends an email notification; arrange a test with the owner before
+   sending one.
+5. After deployment, confirm the live page, stylesheet, images, and navigation
    work at the repository URL.
 
 ## Illustrations
