@@ -1,9 +1,9 @@
 # Yoga in Context
 
 A single-page public education and donor introduction site, built with semantic
-HTML and responsive CSS. There is no JavaScript, build step, package installation,
-or analytics. The contact form posts directly to Formspree; no third-party
-JavaScript is loaded.
+HTML and responsive CSS, with a small optional script for the support disclosure.
+There is no build step, package installation, or analytics. The contact form posts
+directly to Formspree; no third-party JavaScript is loaded.
 
 ## Local preview
 
@@ -20,6 +20,7 @@ Open <http://127.0.0.1:4173> and reload after editing a file.
 - `index.html` contains the approved copy, navigation, and page structure.
 - `styles.css` is organized into design tokens, document defaults, layout,
   components, responsive overrides, and reduced-motion preferences.
+- `support.js` animates the native support disclosure and honors reduced motion.
 - `assets/` contains the manuscript illustration and founder portraits.
 - `.nojekyll` tells GitHub Pages to serve the static files directly.
 - `.editorconfig` and `.gitattributes` keep formatting and line endings consistent.
@@ -38,8 +39,11 @@ focus, and smooth scrolling respects reduced-motion preferences.
 
 “Discuss supporting the project” expands a native HTML disclosure with a name,
 email, and message form. Labels, required fields, email validation, and keyboard
-controls use browser-native behavior. A hidden `_gotcha` field provides
-Formspree's honeypot filtering.
+controls use browser-native behavior. A brief height transition softens opening
+and closing, including when the reader reverses direction mid-transition. Reduced
+motion uses the immediate native toggle. The disclosure and form remain usable
+if JavaScript is unavailable. A hidden `_gotcha` field provides Formspree's
+honeypot filtering.
 
 The form posts to `https://formspree.io/f/xvkgqvyy`. This public endpoint is a form
 identifier, not a secret. The receiving address is configured privately in the
@@ -78,7 +82,8 @@ Before pushing:
    scrolling, readable biographies, and loaded images.
 3. Use the keyboard to follow the skip link, navigation, and support disclosure.
    Check that the form expands and collapses with Enter or Space and that empty
-   fields and invalid email addresses prevent submission.
+   fields and invalid email addresses prevent submission. Check rapid toggles,
+   reduced motion, and the native behavior with JavaScript disabled.
 4. Confirm the form action matches the owner's Formspree endpoint. A live test
    submission sends an email notification; arrange a test with the owner before
    sending one.
