@@ -21,7 +21,7 @@ Open <http://127.0.0.1:4173> and reload after editing a file.
 - `styles.css` is organized into design tokens, document defaults, layout,
   components, responsive overrides, and reduced-motion preferences.
 - `support.js` animates the native support disclosure and honors reduced motion.
-- `assets/` contains the manuscript illustration and founder portraits.
+- `assets/` contains the manuscript illustration, founder portraits, and favicon.
 - `.nojekyll` tells GitHub Pages to serve the static files directly.
 - `.editorconfig` and `.gitattributes` keep formatting and line endings consistent.
 
@@ -97,3 +97,18 @@ photographs and an approved contemporary impressionist manuscript concept.
 Portrait identities are Guy St. Amant, Quinn A. Clark, and Thomas Hunden. The
 manuscript is an interpretive illustration, not a reproduction of a documented
 historical object. Full-resolution originals are not part of this repository.
+
+## Favicon
+
+The favicon is the Newa/Prachalit **jña** conjunct in white on the site's deep blue.
+It is shaped from Noto Sans Newa using HarfBuzz's OpenType shaper with the Sanskrit
+language tag: U+11416 JA + U+11442 VIRAMA + U+11418 NYA. The font substitutes its
+`Ja_Nya` conjunct glyph.
+
+`assets/favicon-jna.svg` contains vector outlines, so visitors do not need the
+font installed. The matching 16- and 32-pixel PNGs are browser fallbacks. The glyph
+retains its original proportions and sits within a 46-unit area on a 64-unit
+rounded square. The local comparison studies are kept in ignored `.work/`.
+
+Typeface source: [Noto Sans Newa](https://github.com/notofonts/newa), licensed under
+the SIL Open Font License 1.1. The website ships outlined artwork, not font files.
